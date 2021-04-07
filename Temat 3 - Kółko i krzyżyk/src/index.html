@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Tic Tac Toe</title>
+	</head>
+	<body>
+		<main class="game">
+			<canvas id="cvs" width="480" height="480"></canvas>
+			<article class="game__options" data-options>
+				<h1 class="options__heading">Tic Tac Toe</h1>
+				<section class="options__opponents">
+					<h2 class="opponents__heading">Play Versus</h2>
+					<div class="opponents__computer" data-button-computer>
+						Computer
+					</div>
+					<div class="opponents__friend" data-button-friend>
+						Friend
+					</div>
+				</section>
+				<section class="options__symbol">
+					<h2 class="symbol__heading">Symbol</h2>
+					<div class="symbol__x" data-button-x>X</div>
+					<div class="symbol__o" data-button-o>O</div>
+				</section>
+				<div class="options__play" data-button-play>Play</div>
+			</article>
+			<div class="game__gameover hide" data-game-over></div>
+		</main>
+		<script src="index.js"></script>
+	</body>
+</html>
