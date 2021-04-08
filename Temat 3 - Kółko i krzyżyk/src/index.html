@@ -4,29 +4,43 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Tic Tac Toe</title>
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Fascinate+Inline&family=RocknRoll+One&display=swap"
+			rel="stylesheet"
+		/>
 	</head>
 	<body>
 		<main class="game">
-			<canvas id="cvs" width="480" height="480"></canvas>
+			<canvas
+				id="cvs"
+				class="game__board hide"
+				width="480"
+				height="480"
+			></canvas>
 			<article class="game__options" data-options>
 				<h1 class="options__heading">Tic Tac Toe</h1>
 				<section class="options__opponents">
 					<h2 class="opponents__heading">Play Versus</h2>
-					<div class="opponents__computer" data-button-computer>
-						Computer
-					</div>
-					<div class="opponents__friend" data-button-friend>
-						Friend
-					</div>
+					<section class="opponents__buttons">
+						<button class="button__computer" data-button-computer>
+							Computer
+						</button>
+						<button class="button__friend" data-button-friend>
+							Friend
+						</button>
+					</section>
 				</section>
 				<section class="options__symbol">
-					<h2 class="symbol__heading">Symbol</h2>
-					<div class="symbol__x" data-button-x>X</div>
-					<div class="symbol__o" data-button-o>O</div>
+					<h2 class="symbols__heading">Symbol</h2>
+					<section class="symbols__buttons">
+						<button class="button__x" data-button-x>X</button>
+						<button class="button__o" data-button-o>O</button>
+					</section>
 				</section>
-				<div class="options__play" data-button-play>Play</div>
+				<button class="options__play" data-button-play>Play</button>
 			</article>
-			<div class="game__gameover hide" data-game-over></div>
+			<div class="game__game-over hide" data-game-over></div>
 		</main>
 		<script src="index.js"></script>
 	</body>

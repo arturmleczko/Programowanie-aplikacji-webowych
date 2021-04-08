@@ -1,9 +1,9 @@
 import { UI } from './UI';
-import { Symbols, Player, Opponent } from './Options';
+import { Symbols, Player } from './Options';
 
 import xImageSrc from './img/X.png';
 import oImageSrc from './img/O.png';
-import tieImageSrc from './img/tie.png';
+import tieImageSrc from './img/TIE.png';
 
 interface BoardVariables {
 	COLUMN: number;
@@ -80,6 +80,7 @@ export class Game extends UI {
 				id++;
 
 				this.ctx.strokeStyle = '#000';
+				this.ctx.lineWidth = 3;
 				this.ctx.strokeRect(
 					j * SPACE_SIZE,
 					i * SPACE_SIZE,
@@ -88,6 +89,8 @@ export class Game extends UI {
 				);
 			}
 		}
+
+		this.canvas.classList.remove('hide');
 	}
 
 	handlePlayerClickLocation(currentPlayer: Symbols, player: Player) {
@@ -177,16 +180,14 @@ export class Game extends UI {
 			this.UISelectors.gameOverElement
 		) as HTMLElement;
 
-		let message: string | undefined = undefined;
+		let message: string = 'The Winner is';
 		let imageSrc: string | undefined = undefined;
 
 		switch (verdict) {
 			case 'X':
-				message = 'The Winner is X';
 				imageSrc = `${xImageSrc}`;
 				break;
 			case 'O':
-				message = 'The Winner is O';
 				imageSrc = `${oImageSrc}`;
 				break;
 			case 'TIE':
@@ -196,11 +197,12 @@ export class Game extends UI {
 		}
 
 		gameOverElement.innerHTML = `
-			<h1>${message}</1>
-			<img class="winner-img" src=${imageSrc} </img>
-			<div class="play" onclick="location.reload()">Play Again!</div>
+			<h1 class="game-over__heading">${message}</h1>
+			<img class="game-over__image" src="${imageSrc}"/>
+			<div class="game-over__play-again" onclick="location.reload()">Play Again!</div>
 		`;
 
+		this.canvas.classList.add('hide');
 		gameOverElement.classList.remove('hide');
 	}
 }
