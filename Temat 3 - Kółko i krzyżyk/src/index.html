@@ -15,24 +15,39 @@
 			<canvas id="cvs" class="game__board hide"></canvas>
 			<article class="game__options" data-options>
 				<h1 class="options__heading">Tic Tac Toe</h1>
-				<section class="options__board-size">
-					<h2 class="board-size__heading">Board size</h2>
+				<section class="options__container">
+					<h2 class="container__heading">Board size</h2>
 					<input
 						type="number"
 						class="board__size-input"
 						data-size-board-input
 					/>
 				</section>
-				<section class="options__symbol">
-					<h2 class="symbols__heading">Symbol</h2>
+				<section class="options__container">
+					<h2 class="container__heading">Symbol</h2>
 					<section class="symbols__buttons">
-						<button class="button__x" data-button-x>X</button>
-						<button class="button__o" data-button-o>O</button>
+						<button
+							class="options__button symbols__button"
+							data-button-x
+						>
+							X
+						</button>
+						<button
+							class="options__button symbols__button"
+							data-button-o
+						>
+							O
+						</button>
 					</section>
 				</section>
-				<button class="options__play" data-button-play>Play</button>
+				<button
+					class="options__button options__play-button"
+					data-button-play
+				>
+					Play
+				</button>
 			</article>
-			<div class="game__game-over hide" data-game-over></div>
+			<div class="game__game-over" data-game-over></div>
 		</main>
 		<script src="index.js"></script>
 	</body>
