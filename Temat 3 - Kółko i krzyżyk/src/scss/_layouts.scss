@@ -87,7 +87,7 @@ body {
 			font-size: 25px;
 
 			&:hover,
-			&:active {
+			&.active {
 				@include custom-hover-or-active;
 			}
 		}
