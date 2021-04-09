@@ -1,25 +1,35 @@
 @import '_reset';
-@import '_variables';
+@import '_colors';
+
+@mixin centerItemInRow {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@mixin centerItemInColumn {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
 
 button {
 	background-color: $white-color;
 	outline: none;
+	cursor: pointer;
 }
 
 body {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	@include centerItemInRow();
 	width: 100vw;
 	height: 100vh;
 
 	.game {
-		display: flex;
-		justify-content: center;
-		align-items: center;
+		@include centerItemInRow();
 		position: relative;
-		width: 1000px;
-		height: 800px;
+		width: 100%;
+		height: 100%;
 
 		.game__board {
 			position: absolute;
@@ -27,10 +37,7 @@ body {
 		}
 
 		.game__game-over {
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-items: center;
+			@include centerItemInColumn();
 			width: 100%;
 			height: 100%;
 
@@ -47,7 +54,7 @@ body {
 
 			.game-over__play-again {
 				width: 300px;
-				padding: 20px 0;
+				padding: 15px 0;
 				margin-top: 30px;
 				border: 5px solid $black-color;
 				border-radius: 20px;
@@ -55,7 +62,6 @@ body {
 				font-size: 30px;
 				text-align: center;
 				text-transform: uppercase;
-				cursor: pointer;
 				transition: 0.2s ease-in-out;
 
 				&:hover {
@@ -74,8 +80,8 @@ body {
 	align-items: center;
 	justify-content: space-around;
 	position: absolute;
-	width: 100%;
-	height: 100%;
+	width: 1000px;
+	height: 750px;
 
 	.options__heading {
 		font-family: 'Fascinate Inline', cursive;
@@ -83,21 +89,21 @@ body {
 		color: $red-color;
 	}
 
-	.options__opponents,
-	.options__symbol {
+	.options__symbol,
+	.options__board-size {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: space-around;
 		width: 60%;
+		height: 200px;
 
-		.opponents__heading,
-		.symbols__heading {
+		.symbols__heading,
+		.board-size__heading {
 			font-family: 'RocknRoll One', sans-serif;
 			font-size: 50px;
 		}
 
-		.opponents__buttons,
 		.symbols__buttons {
 			display: flex;
 			justify-content: space-around;
@@ -105,8 +111,6 @@ body {
 			padding: 20px;
 		}
 
-		.button__computer,
-		.button__friend,
 		.button__x,
 		.button__o {
 			width: 220px;
@@ -118,7 +122,6 @@ body {
 			font-size: 25px;
 			text-align: center;
 			text-transform: uppercase;
-			cursor: pointer;
 			transition: 0.2s ease-in-out;
 
 			&:hover,
@@ -126,6 +129,23 @@ body {
 				background-color: $black-color;
 				color: $white-color;
 			}
+		}
+
+		.board__size-input {
+			width: 220px;
+			padding: 15px 0;
+			margin-top: 10px;
+			border: 5px solid $black-color;
+			font-family: 'RocknRoll One', sans-serif;
+			font-size: 30px;
+			text-align: center;
+			outline: none;
+		}
+
+		input[type='number']::-webkit-inner-spin-button,
+		input[type='number']::-webkit-outer-spin-button {
+			-webkit-appearance: none;
+			margin: 0;
 		}
 	}
 
@@ -139,7 +159,6 @@ body {
 		font-size: 30px;
 		text-align: center;
 		text-transform: uppercase;
-		cursor: pointer;
 		transition: 0.2s ease-in-out;
 
 		&:hover {

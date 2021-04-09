@@ -1,15 +1,10 @@
 import { UI } from './UI';
 import { Symbols, Player } from './Options';
+import { WinningCombinations } from './WinningCombinations';
 
 import xImageSrc from './img/X.png';
 import oImageSrc from './img/O.png';
 import tieImageSrc from './img/TIE.png';
-
-interface BoardVariables {
-	COLUMN: number;
-	ROW: number;
-	SPACE_SIZE: number;
-}
 
 interface SymbolsImage {
 	xImage: HTMLImageElement;
@@ -21,44 +16,38 @@ interface CellIndexes {
 	j: number;
 }
 
-type Combo = [number, number, number];
-
 export class Game extends UI {
 	canvas = document.getElementById('cvs') as HTMLCanvasElement;
 	ctx = this.canvas.getContext('2d') as CanvasRenderingContext2D;
+
+	board: number[][] = [];
+
+	SIZE: number = 0;
+	SPACE_SIZE: number = 160;
+
+	gameData: Symbols[] = [];
 
 	symbolsImages: SymbolsImage = {
 		xImage: new Image(),
 		oImage: new Image(),
 	};
 
-	board: number[][] = [];
-	boardVariables: BoardVariables = {
-		COLUMN: 3,
-		ROW: 3,
-		SPACE_SIZE: 160,
-	};
-
-	gameData: Symbols[] = new Array(9);
-
-	COMBOS: Combo[] = [
-		[0, 1, 2],
-		[3, 4, 5],
-		[6, 7, 8],
-		[0, 3, 6],
-		[1, 4, 7],
-		[2, 5, 8],
-		[0, 4, 8],
-		[2, 4, 6],
-	];
+	winningCombination = new WinningCombinations(this.board);
+	COMBOS = this.winningCombination.COMBOS;
 
 	GAME_OVER = false;
 
+	constructor(SIZE: number) {
+		super();
+		this.SIZE = SIZE;
+	}
+
 	initializationGame(player: Player) {
-		let currentPlayer = player.man;
+		let currentPlayer = player.you;
 
 		this.setImagesContent();
 		this.drawBoard();
+		this.winningCombination.initializeWinningCombinations();
 		this.handlePlayerClickLocation(currentPlayer, player);
 	}
 
@@ -69,28 +58,37 @@ export class Game extends UI {
 	}
 
 	drawBoard() {
-		const { COLUMN, ROW, SPACE_SIZE } = this.boardVariables;
+		this.setBoardProperties();
 		let id = 0;
 
-		for (let i = 0; i < ROW; i++) {
+		for (let i = 0; i < this.SIZE; i++) {
 			this.board[i] = [];
 
-			for (let j = 0; j < COLUMN; j++) {
+			for (let j = 0; j < this.SIZE; j++) {
 				this.board[i][j] = id;
 				id++;
 
 				this.ctx.strokeStyle = '#000';
 				this.ctx.lineWidth = 3;
 				this.ctx.strokeRect(
-					j * SPACE_SIZE,
-					i * SPACE_SIZE,
-					SPACE_SIZE,
-					SPACE_SIZE
+					j * this.SPACE_SIZE,
+					i * this.SPACE_SIZE,
+					this.SPACE_SIZE,
+					this.SPACE_SIZE
 				);
 			}
 		}
 
 		this.canvas.classList.remove('hide');
+	}
+
+	setBoardProperties() {
+		const numberCells: number = Math.pow(this.SIZE, 2);
+		this.gameData = new Array(numberCells);
+
+		const sizeSideBard: number = this.SPACE_SIZE * this.SIZE;
+		this.canvas.width = sizeSideBard;
+		this.canvas.height = sizeSideBard;
 	}
 
 	handlePlayerClickLocation(currentPlayer: Symbols, player: Player) {
@@ -107,7 +105,7 @@ export class Game extends UI {
 			this.checkGameResult(currentPlayer);
 
 			currentPlayer =
-				currentPlayer == player.man ? player.friend : player.man;
+				currentPlayer == player.you ? player.friend : player.you;
 		});
 	}
 
@@ -115,7 +113,7 @@ export class Game extends UI {
 		const X = event.clientX - this.canvas.getBoundingClientRect().x;
 		const Y = event.clientY - this.canvas.getBoundingClientRect().y;
 
-		const SPACE_SIZE = this.boardVariables.SPACE_SIZE;
+		const SPACE_SIZE = this.SPACE_SIZE;
 		const i = Math.floor(Y / SPACE_SIZE);
 		const j = Math.floor(X / SPACE_SIZE);
 
@@ -125,14 +123,14 @@ export class Game extends UI {
 
 	drawOnBoard(currentPlayer: Symbols, i: number, j: number) {
 		const { xImage, oImage } = this.symbolsImages;
-		const SPACE_SIZE = this.boardVariables.SPACE_SIZE;
+		const SPACE_SIZE = this.SPACE_SIZE;
 
 		const img = currentPlayer === 'X' ? xImage : oImage;
 		this.ctx.drawImage(img, j * SPACE_SIZE, i * SPACE_SIZE);
 	}
 
 	checkGameResult(currentPlayer?: Symbols) {
-		if (this.isWinner(this.gameData, currentPlayer)) {
+		if (this.isWinner(currentPlayer)) {
 			this.showGameOver(currentPlayer);
 			this.GAME_OVER = true;
 			return;
@@ -145,13 +143,13 @@ export class Game extends UI {
 		}
 	}
 
-	isWinner(gameData: Symbols[], verdict: Symbols) {
+	isWinner(verdict: Symbols) {
 		for (let i = 0; i < this.COMBOS.length; i++) {
 			let won = true;
 
 			for (let j = 0; j < this.COMBOS[i].length; j++) {
 				let id = this.COMBOS[i][j];
-				won = gameData[id] === verdict && won;
+				won = this.gameData[id] === verdict && won;
 			}
 
 			if (won) {

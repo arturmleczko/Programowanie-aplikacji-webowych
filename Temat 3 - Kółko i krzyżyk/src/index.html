@@ -12,24 +12,16 @@
 	</head>
 	<body>
 		<main class="game">
-			<canvas
-				id="cvs"
-				class="game__board hide"
-				width="480"
-				height="480"
-			></canvas>
+			<canvas id="cvs" class="game__board hide"></canvas>
 			<article class="game__options" data-options>
 				<h1 class="options__heading">Tic Tac Toe</h1>
-				<section class="options__opponents">
-					<h2 class="opponents__heading">Play Versus</h2>
-					<section class="opponents__buttons">
-						<button class="button__computer" data-button-computer>
-							Computer
-						</button>
-						<button class="button__friend" data-button-friend>
-							Friend
-						</button>
-					</section>
+				<section class="options__board-size">
+					<h2 class="board-size__heading">Board size</h2>
+					<input
+						type="number"
+						class="board__size-input"
+						data-size-board-input
+					/>
 				</section>
 				<section class="options__symbol">
 					<h2 class="symbols__heading">Symbol</h2>

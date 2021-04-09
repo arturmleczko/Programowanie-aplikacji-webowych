@@ -2,8 +2,7 @@ export class UI {
 	UISelectors = {
 		options: '[data-options]',
 		gameOverElement: '[data-game-over]',
-		computerButton: '[data-button-computer]',
-		friendButton: '[data-button-friend]',
+		sizeBoardInput: '[data-size-board-input]',
 		xButton: '[data-button-x]',
 		oButton: '[data-button-o]',
 		playButton: '[data-button-play]',
