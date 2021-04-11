@@ -1,0 +1,28 @@
+button {
+	background-color: $colors-white;
+	outline: none;
+	cursor: pointer;
+}
+
+.game__board.hide,
+.game__options.hide {
+	display: none;
+}
+
+.options__container {
+	@include distribute-items-evenly-in-column();
+	width: $width-options-container;
+	height: $height-options-container;
+
+	.container__heading {
+		font-family: $font-basic;
+		font-size: 50px;
+	}
+}
+
+.options__button {
+	@include custom-button();
+	margin-top: $margin-top-options-button-and-size-input;
+	text-transform: uppercase;
+	transition: $transition-basic;
+}
