@@ -6,7 +6,7 @@ export class TicTacToe implements Game {
 	name: string;
 
 	constructor() {
-		this.name = 'Kółko i krzyżyk';
+		this.name = 'Tic Tac Toe';
 	}
 
 	getGameElement(): HTMLElement {

@@ -1,95 +1,88 @@
-interface DOMElement {
-	className?: string | undefined;
-	dataSet?: string | undefined;
-	id?: string | undefined;
-	tagName: keyof HTMLElementTagNameMap;
-	textContent?: string | undefined;
-	type?: string | undefined;
-}
+import { createDOMElement } from '../../createDOMElement';
 
 export class DOM {
 	createDOM() {
-		const main = this.createDOMElement({
+		const main = createDOMElement({
 			tagName: 'main',
 			className: 'game',
 		});
 
-		const canvas = this.createDOMElement({
+		const canvas = createDOMElement({
 			tagName: 'canvas',
 			className: 'game__board hide',
 			id: 'cvs',
 		});
 
-		const article = this.createDOMElement({
+		const article = createDOMElement({
 			tagName: 'article',
 			className: 'game__options',
 			dataSet: 'options',
 		});
 
-		const h1 = this.createDOMElement({
+		const h1 = createDOMElement({
 			tagName: 'h1',
 			className: 'options__heading',
 			textContent: 'Tic Tac Toe',
 		});
 
-		const firstSection = this.createDOMElement({
+		const firstSection = createDOMElement({
 			tagName: 'section',
 			className: 'options__container',
 		});
 
-		const h2InFirstSection = this.createDOMElement({
+		const h2InFirstSection = createDOMElement({
 			tagName: 'h2',
 			className: 'container__heading',
 			textContent: 'Board size',
 		});
 
-		const input = this.createDOMElement({
+		const input = createDOMElement({
 			tagName: 'input',
 			className: 'board__size-input',
 			dataSet: 'sizeBoardInput',
 			type: 'number',
 		});
 
-		const secondSection = this.createDOMElement({
+		const secondSection = createDOMElement({
 			tagName: 'section',
 			className: 'options__container',
 		});
 
-		const h2InSecondSection = this.createDOMElement({
+		const h2InSecondSection = createDOMElement({
 			tagName: 'h2',
 			className: 'container__heading',
 			textContent: 'Symbol',
 		});
 
-		const sectionSymbolsButtons = this.createDOMElement({
+		const sectionSymbolsButtons = createDOMElement({
 			tagName: 'section',
 			className: 'symbols__buttons',
 		});
 
-		const buttonX = this.createDOMElement({
+		const buttonX = createDOMElement({
 			tagName: 'button',
 			className: 'options__button symbols__button',
 			dataSet: 'buttonX',
 			textContent: 'X',
 		});
 
-		const buttonY = this.createDOMElement({
+		const buttonY = createDOMElement({
 			tagName: 'button',
 			className: 'options__button symbols__button',
 			dataSet: 'buttonO',
 			textContent: 'O',
 		});
 
-		const buttonPlay = this.createDOMElement({
+		const buttonPlay = createDOMElement({
 			tagName: 'button',
 			className: 'options__button options__play-button',
 			dataSet: 'buttonPlay',
 			textContent: 'Play',
 		});
 
-		const divGameOver = this.createDOMElement({
+		const divGameOver = createDOMElement({
 			tagName: 'div',
-			className: 'game__game-over',
+			className: 'game__game-over hide',
 			dataSet: 'gameOver',
 		});
 
@@ -108,18 +101,5 @@ export class DOM {
 		main.appendChild(divGameOver);
 
 		return main;
-	}
-
-	createDOMElement(obj: DOMElement): HTMLElement {
-		const { tagName, className, id, dataSet, type, textContent } = obj;
-		const htmlElement = document.createElement(tagName);
-
-		if (className !== undefined) htmlElement.className = className;
-		if (id !== undefined) htmlElement.id = id;
-		if (dataSet !== undefined) htmlElement.dataset[dataSet] = '';
-		if (type !== undefined && htmlElement instanceof HTMLInputElement)
-			htmlElement.type = type;
-		if (textContent !== undefined) htmlElement.textContent = textContent;
-		return htmlElement;
 	}
 }

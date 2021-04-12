@@ -1,6 +1,7 @@
 import { UI } from './UI';
 import { Symbols, Player } from './Options';
 import { WinningCombinations } from './WinningCombinations';
+import { createDOMElement } from '../../createDOMElement';
 
 import xImageSrc from '../img/X.png';
 import oImageSrc from '../img/O.png';
@@ -47,6 +48,8 @@ export class Game extends UI {
 
 		this.setImagesContent();
 		this.drawBoard();
+		console.log(this.board);
+		console.log(this.COMBOS);
 		this.winningCombination.initializeWinningCombinations();
 		this.handlePlayerClickLocation(currentPlayer, player);
 	}
@@ -174,10 +177,6 @@ export class Game extends UI {
 	}
 
 	showGameOver(verdict: Symbols | string) {
-		const gameOverElement = this.getElement(
-			this.UISelectors.gameOverElement
-		) as HTMLElement;
-
 		let message: string = 'The Winner is';
 		let imageSrc: string | undefined = undefined;
 
@@ -194,13 +193,51 @@ export class Game extends UI {
 				break;
 		}
 
-		gameOverElement.innerHTML = `
-			<h1 class="game-over__heading">${message}</h1>
-			<img class="game-over__image" src="${imageSrc}"/>
-			<div class="game-over__play-again" onclick="location.reload()">Play Again!</div>
-		`;
+		this.gameOver(message, imageSrc);
+	}
+
+	gameOver(message: string, imageSrc: string | undefined) {
+		const gameOverElement = this.getElement(
+			this.UISelectors.gameOverElement
+		) as HTMLElement;
+
+		const h1 = createDOMElement({
+			tagName: 'h1',
+			className: 'game-over__heading',
+			textContent: message,
+		});
+
+		const img = createDOMElement({
+			tagName: 'img',
+			className: 'game-over__image',
+			src: imageSrc,
+		});
+
+		const div = createDOMElement({
+			tagName: 'div',
+			className: 'game-over__play-again',
+			textContent: 'Play Again!',
+		});
+
+		gameOverElement.appendChild(h1);
+		gameOverElement.appendChild(img);
+		gameOverElement.appendChild(div);
 
 		this.canvas.classList.add('hide');
 		gameOverElement.classList.remove('hide');
+
+		div.addEventListener('click', () => this.playAgain(gameOverElement));
+	}
+
+	playAgain(gameOverElement: HTMLElement) {
+		const options = this.getElement(
+			this.UISelectors.options
+		) as HTMLElement;
+
+		gameOverElement.classList.add('hide');
+		while (gameOverElement.firstChild) {
+			gameOverElement.removeChild(gameOverElement.firstChild);
+		}
+		options.classList.remove('hide');
 	}
 }
