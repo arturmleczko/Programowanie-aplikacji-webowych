@@ -14,7 +14,7 @@ body {
 	position: relative;
 }
 
-.menu {
+.menu-container {
 	position: relative;
 	display: flex;
 	align-items: center;
@@ -23,29 +23,7 @@ body {
 	background-color: #018dbe;
 	overflow: hidden;
 
-	&::before {
-		content: '';
-		position: absolute;
-		right: -120px;
-		top: -120px;
-		width: 200px;
-		height: 200px;
-		background-color: #00a3db;
-		transform: rotate(45deg);
-	}
-
-	&::after {
-		content: '';
-		position: absolute;
-		left: -120px;
-		top: -120px;
-		width: 200px;
-		height: 200px;
-		background-color: #00a3db;
-		transform: rotate(45deg);
-	}
-
-	.menu__container {
+	.menu-container__sub-container {
 		display: flex;
 		align-items: center;
 		justify-content: space-around;
@@ -53,18 +31,18 @@ body {
 		height: 100%;
 	}
 
-	.menu-container__logo {
+	.sub-container__logo {
 		width: 267px;
 		height: 89px;
 	}
 
-	.menu-container__games {
+	.sub-container__game-navigation {
 		display: flex;
 		justify-content: space-around;
 		height: 100%;
 		width: 60%;
 		padding: 40px 0;
-		.games__tic-tac-toe {
+		.game-navigation-container__tic-tac-toe {
 			position: relative;
 			display: flex;
 			flex-direction: column;
@@ -151,7 +129,7 @@ body {
 				}
 			}
 		}
-		.games__battle-ships {
+		.game-navigation-container__battle-ships {
 			position: relative;
 			display: flex;
 			flex-direction: column;
@@ -239,7 +217,7 @@ body {
 			}
 		}
 
-		.games__space-ships {
+		.game-navigation-container__space-ships {
 			position: relative;
 			display: flex;
 			flex-direction: column;

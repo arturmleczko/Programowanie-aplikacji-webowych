@@ -8,17 +8,26 @@ interface DOMElement {
 	src?: string | undefined;
 }
 
-export const createDOMElement = (obj: DOMElement): HTMLElement => {
-	const { tagName, className, id, dataSet, type, textContent, src } = obj;
+export const createDOMElement = (objWithAttrs: DOMElement): HTMLElement => {
+	const {
+		tagName,
+		className,
+		id,
+		dataSet,
+		type,
+		textContent,
+		src,
+	} = objWithAttrs;
 	const htmlElement = document.createElement(tagName);
 
 	if (className !== undefined) htmlElement.className = className;
-	if (id !== undefined) htmlElement.id = id;
 	if (dataSet !== undefined) htmlElement.dataset[dataSet] = '';
+	if (id !== undefined) htmlElement.id = id;
+	if (textContent !== undefined) htmlElement.textContent = textContent;
 	if (type !== undefined && htmlElement instanceof HTMLInputElement)
 		htmlElement.type = type;
-	if (textContent !== undefined) htmlElement.textContent = textContent;
 	if (src !== undefined && htmlElement instanceof HTMLImageElement)
 		htmlElement.src = src;
+
 	return htmlElement;
 };
