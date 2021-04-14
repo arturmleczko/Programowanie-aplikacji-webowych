@@ -1,0 +1,80 @@
+.menu-container {
+	position: relative;
+	@include center-item-in-row();
+	height: $menu-container-height;
+	background-color: $menu-background-color;
+	overflow: hidden;
+
+	.menu-container__subcontainer {
+		@include distribute-items-evenly-in-row();
+		width: $menu-subcontainer-width;
+		height: 100%;
+
+		.subcontainer__logo {
+			width: $logo-width;
+			height: $logo-height;
+		}
+
+		.subcontainer__game-navigation {
+			@include distribute-items-evenly-in-row();
+			width: $game-navigation-width;
+			height: 100%;
+			padding: $game-navigation-padding;
+
+			.overlay {
+				@include set-overlay-for-game();
+			}
+		}
+	}
+}
+
+.game-navigation__tic-tac-toe {
+	background-color: $orange-color;
+
+	.tic-tac-toe__heading {
+		@include set-heading-for-game($red-color);
+	}
+
+	.tic-tac-toe__image-container {
+		@include set-image-container($bright-orange-color);
+	}
+
+	.tic-tac-toe__image {
+		@include set-image($tic-tac-toe-src);
+		background-position: center;
+	}
+}
+
+.game-navigation__battle-ships {
+	background-color: $green-color;
+
+	.battle-ships__heading {
+		@include set-heading-for-game($blue-color);
+	}
+
+	.battle-ships__image-container {
+		@include set-image-container($bright-green-color);
+	}
+
+	.battle-ships__image {
+		@include set-image($battle-ships-src);
+	}
+}
+
+.game-navigation__space-ships {
+	background-color: $lilac-color;
+
+	.space-ships__heading {
+		@include set-heading-for-game($orange-color);
+	}
+
+	.space-ships__image-container {
+		@include set-image-container($bright-lilac-color);
+		background-position: 5px center;
+	}
+
+	.space-ships__image {
+		@include set-image($space-ships-src);
+		background-position: center;
+	}
+}

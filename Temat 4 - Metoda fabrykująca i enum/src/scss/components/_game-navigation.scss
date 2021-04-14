@@ -1,0 +1,29 @@
+.game-navigation__game {
+	position: relative;
+	@include center-item-in-column;
+	width: $game-navigation-game-width;
+	height: 100%;
+	cursor: pointer;
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: -8px;
+		left: 4px;
+		width: $game-navigation-before-width;
+		height: $game-navigation-before-height;
+		background-color: $before-game-navigation-color;
+		transform: skew(-45deg, 0);
+	}
+
+	&::after {
+		content: '';
+		position: absolute;
+		top: -4px;
+		right: -8px;
+		width: $game-navigation-after-width;
+		height: $game-navigation-after-height;
+		background-color: $after-game-navigation-color;
+		transform: skew(0, -45deg);
+	}
+}

@@ -1,0 +1,10 @@
+.game-window {
+	position: relative;
+	@include center-item-in-row();
+	width: 100%;
+	height: $game-window-height;
+	border-width: $game-window-border-width;
+	border-style: solid;
+	border-color: $game-window-border-color;
+	overflow: hidden;
+}
