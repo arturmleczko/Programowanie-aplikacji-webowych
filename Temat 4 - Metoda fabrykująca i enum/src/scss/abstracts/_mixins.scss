@@ -57,7 +57,7 @@
 		width: $before-for-image-container-size;
 		height: $before-for-image-container-size;
 		background-color: $bgc-color;
-		transform: rotate(45deg);
+		transform: $before-in-image-container-rotate;
 	}
 }
 

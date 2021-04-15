@@ -1,0 +1,48 @@
+// OVERALL SIZE
+$game-and-game-over-size: 100%;
+$game-over-image-size: 150px;
+
+// WIDTHS
+$play-again-button-width: 300px;
+$play-again-button-hover-width: 320px;
+$play-button-width: 180px;
+$play-button-hover-width: 200px;
+$options-container-width: 60%;
+$options-subcontainer-width: 1000px;
+
+// HEIGHTS
+$options-container-height: 200px;
+$options-subcontainer-height: 750px;
+$symbols-button-and-size-input-width: 220px;
+
+// FONT FAMILIES
+$heading-board-font-family: 'Fascinate Inline', cursive;
+$basic-board-font-family: 'RocknRoll One', sans-serif;
+
+// FONT SIZES
+$game-over-heading-font-size: 75px;
+$input-and-play-button-font-size: 30px;
+$options-container-heading-font-size: 50px;
+$options-main-heading-font-size: 90px;
+$symbol-button-font-size: 25px;
+
+// COLORS
+$black-color: #000000;
+$heading-color: #ec0e2a;
+$white-color: #ffffff;
+
+// PADDINGS
+$basic-padding: 15px 0;
+$image-and-button-padding: 20px;
+
+// MARGINS
+$basic-top-margin: 30px;
+$top-options-button-and-size-input-margin: 10px;
+
+// BORDER
+$basic-border: 5px solid $black-color;
+$basic-border-radius: 20px;
+$board-game-border: 2px solid $black-color;
+
+// TRANSITIONS
+$basic-transition: 0.2s ease-in-out;

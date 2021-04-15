@@ -24,24 +24,23 @@ $menu-container-height: 350px;
 $game-navigation-padding: 40px 0;
 
 // BORDER
-$board-tic-tac-toe-border: 2px solid #000000;
 $game-window-border-width: 20px;
 $game-window-border-color: #d8e5ec #6c9dc3;
 
 // COLORS
 $after-game-navigation-color: #6c9dc3;
 $before-game-navigation-color: #d8e5ec;
-$blue-color: #1581b8;
-$bright-green-color: #8fae30;
-$bright-lilac-color: #6e75d4;
-$bright-orange-color: #f6b21c;
-$green-color: #7fa329;
-$heading-game-color: #ffffff;
-$lilac-color: #5f65ec;
-$menu-background-color: #018dbe;
-$orange-color: #f5a718;
-$overlay-hover-color: rgba(0, 0, 0, 0.233);
 $red-color: #eb372d;
+$blue-color: #1581b8;
+$menu-background-color: #018dbe;
+$green-color: #7fa329;
+$bright-green-color: #8fae30;
+$lilac-color: #5f65ec;
+$bright-lilac-color: #6e75d4;
+$orange-color: #f5a718;
+$bright-orange-color: #f6b21c;
+$heading-game-color: #ffffff;
+$overlay-hover-color: rgba(0, 0, 0, 0.233);
 
 // FONT FAMILIES
 $basic-font-family: 'Anton', sans-serif;
@@ -53,6 +52,11 @@ $heading-game-font-size: 24px;
 $battle-ships-src: './img/thumbnails/battleships.png';
 $tic-tac-toe-src: './img/thumbnails/tictactoe.png';
 $space-ships-src: './img/thumbnails/spaceships.png';
+
+// TRANSFORM
+$before-in-image-container-rotate: rotate(45deg);
+$before-in-navigation-game-skew: skew(-45deg, 0);
+$after-in-navigation-game-skew: skew(0, -45deg);
 
 // TRANSITION
 $overlay-transition: background-color 0.15s ease-in-out;

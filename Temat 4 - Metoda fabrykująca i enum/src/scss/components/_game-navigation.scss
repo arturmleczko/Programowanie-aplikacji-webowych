@@ -13,7 +13,7 @@
 		width: $game-navigation-before-width;
 		height: $game-navigation-before-height;
 		background-color: $before-game-navigation-color;
-		transform: skew(-45deg, 0);
+		transform: $before-in-navigation-game-skew;
 	}
 
 	&::after {
@@ -24,6 +24,6 @@
 		width: $game-navigation-after-width;
 		height: $game-navigation-after-height;
 		background-color: $after-game-navigation-color;
-		transform: skew(0, -45deg);
+		transform: $after-in-navigation-game-skew;
 	}
 }

@@ -1,0 +1,10 @@
+.options__container {
+	@include distribute-items-evenly-in-column();
+	width: $options-container-width;
+	height: $options-container-height;
+
+	.container__heading {
+		font-family: $basic-board-font-family;
+		font-size: $options-container-heading-font-size;
+	}
+}
