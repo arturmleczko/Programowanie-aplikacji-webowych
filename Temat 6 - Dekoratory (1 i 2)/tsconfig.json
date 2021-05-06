@@ -1,0 +1,12 @@
+{
+	"compilerOptions": {
+		"sourceMap": true,
+		// "strictNullChecks": true,
+		// "noImplicitAny": false,
+		"module": "ESNext",
+		"target": "es6",
+		"removeComments": true,
+		"experimentalDecorators": true
+	},
+	"include": ["src/**/*"]
+}
