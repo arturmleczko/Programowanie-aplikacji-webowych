@@ -1,10 +1,17 @@
 import { createDOMElement } from './createDOMElement';
 
+enum Theme {
+	Dark = 'dark',
+	Light = 'light',
+}
+
 export class SwitchTheme {
 	initializeSwitchTheme() {
 		const toggleSwitch = document.querySelector(
 			'.theme-switch input[type="checkbox"]'
-		) as HTMLElement;
+		) as HTMLInputElement;
+
+		this.checkThemeInLocalStorage(toggleSwitch);
 
 		toggleSwitch.addEventListener('change', this.switchTheme);
 	}
@@ -37,9 +44,25 @@ export class SwitchTheme {
 		const target = e.target as HTMLInputElement;
 
 		if (target.checked) {
-			document.documentElement.setAttribute('data-theme', 'dark');
+			document.documentElement.setAttribute('data-theme', Theme.Dark);
+			localStorage.setItem('theme', Theme.Dark);
 		} else {
-			document.documentElement.setAttribute('data-theme', 'light');
+			document.documentElement.setAttribute('data-theme', Theme.Light);
+			localStorage.setItem('theme', Theme.Light);
+		}
+	}
+
+	checkThemeInLocalStorage(toggleSwitch: HTMLInputElement) {
+		const currentTheme = localStorage.getItem('theme')
+			? localStorage.getItem('theme')
+			: null;
+
+		if (currentTheme) {
+			document.documentElement.setAttribute('data-theme', currentTheme);
+
+			if (currentTheme === Theme.Dark) {
+				toggleSwitch.checked = true;
+			}
 		}
 	}
 }
