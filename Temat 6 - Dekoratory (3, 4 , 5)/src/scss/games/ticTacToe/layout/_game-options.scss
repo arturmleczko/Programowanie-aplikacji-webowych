@@ -1,0 +1,56 @@
+.game__options {
+	@include distribute-items-evenly-in-column();
+	position: absolute;
+	width: 1000px;
+	height: 750px;
+
+	.options__heading {
+		font-family: $heading-board-font-family;
+		font-size: 90px;
+		color: $heading-color;
+	}
+
+	.board__size-input {
+		width: $symbols-button-and-size-input-width;
+		padding: $basic-padding;
+		margin-top: $top-options-button-and-size-input-margin;
+		border: $basic-border;
+		font-family: $basic-board-font-family;
+		font-size: $input-and-play-button-font-size;
+		text-align: center;
+		outline: none;
+
+		&::-webkit-inner-spin-button,
+		&::-webkit-outer-spin-button {
+			-webkit-appearance: none;
+			margin: 0;
+		}
+	}
+}
+
+.symbols__buttons {
+	display: flex;
+	justify-content: space-around;
+	width: 100%;
+	padding: $image-and-button-padding;
+
+	.symbols__button {
+		width: $symbols-button-and-size-input-width;
+		font-size: 25px;
+
+		&:hover,
+		&.active {
+			@include custom-hover-or-active;
+		}
+	}
+}
+
+.options__play-button {
+	width: 180px;
+	font-size: $input-and-play-button-font-size;
+
+	&:hover {
+		@include custom-hover-or-active();
+		width: 200px;
+	}
+}

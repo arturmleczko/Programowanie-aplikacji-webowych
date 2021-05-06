@@ -1,0 +1,13 @@
+@import './scss/abstracts/mixins';
+@import './scss/abstracts/variables';
+
+@import './scss/base/reset';
+
+@import './scss/components/game-navigation';
+@import './scss/components/switch-theme';
+
+@import './scss/games/ticTacToe/main';
+
+@import './scss/layout/body';
+@import './scss/layout/game-window';
+@import './scss/layout/menu';

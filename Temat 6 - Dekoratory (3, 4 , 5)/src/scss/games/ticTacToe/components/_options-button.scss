@@ -1,0 +1,6 @@
+.options__button {
+	@include custom-button();
+	margin-top: $top-options-button-and-size-input-margin;
+	text-transform: uppercase;
+	transition: $basic-transition;
+}
