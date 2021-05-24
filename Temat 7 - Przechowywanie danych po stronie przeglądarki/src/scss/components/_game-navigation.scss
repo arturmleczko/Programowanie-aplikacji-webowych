@@ -1,0 +1,33 @@
+.game-navigation__game {
+	position: relative;
+	@include center-item-in-column;
+	width: $game-navigation-game-width;
+	height: 100%;
+	cursor: pointer;
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: -8px;
+		left: 4px;
+		width: 100%;
+		height: 8px;
+		background-color: var(--before-game-navigation-color);
+		transform: skew(-45deg, 0);
+	}
+
+	&::after {
+		content: '';
+		position: absolute;
+		top: -4px;
+		right: -8px;
+		width: 8px;
+		height: 100%;
+		background-color: var(--after-game-navigation-color);
+		transform: skew(0, -45deg);
+	}
+
+	&.disabled {
+		display: none;
+	}
+}

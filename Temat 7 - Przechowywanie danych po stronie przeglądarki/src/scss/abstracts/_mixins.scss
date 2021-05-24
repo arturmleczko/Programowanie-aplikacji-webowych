@@ -1,0 +1,69 @@
+@mixin center-item-in-row {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@mixin center-item-in-column {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+@mixin distribute-items-evenly-in-row {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+
+@mixin set-heading-for-game($bgc-color) {
+	font-size: 24px;
+	height: $heading-game-height;
+	line-height: $heading-game-height;
+	letter-spacing: 1px;
+	width: 100%;
+	color: $heading-game-color;
+	background-color: $bgc-color;
+	font-family: $basic-font-family;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+@mixin set-overlay-for-game {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	transition: background-color 0.15s ease-in-out;
+	z-index: 5;
+
+	&:hover {
+		background-color: var(--overlay-hover-color);
+	}
+}
+
+@mixin set-image-container($bgc-color) {
+	@include center-item-in-row;
+	position: sticky;
+	height: $image-container-height;
+	width: 100%;
+	overflow: hidden;
+
+	&::before {
+		content: '';
+		position: absolute;
+		right: -61px;
+		top: -61px;
+		width: $before-for-image-container-size;
+		height: $before-for-image-container-size;
+		background-color: $bgc-color;
+		transform: rotate(45deg);
+	}
+}
+
+@mixin set-image($src) {
+	width: 170px;
+	height: 140px;
+	background-image: $src;
+	background-size: cover;
+}

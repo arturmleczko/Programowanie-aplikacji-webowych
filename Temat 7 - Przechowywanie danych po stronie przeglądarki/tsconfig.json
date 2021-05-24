@@ -1,0 +1,12 @@
+{
+	"compilerOptions": {
+		"sourceMap": true,
+		// "strictNullChecks": true,
+		// "noImplicitAny": true,
+		"module": "ESNext",
+		"target": "es6",
+		"removeComments": true,
+		"experimentalDecorators": true
+	},
+	"include": ["src/**/*", "import-png.d.ts"]
+}
