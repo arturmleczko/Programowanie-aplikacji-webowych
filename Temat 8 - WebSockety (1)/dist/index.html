@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Gadu-Gadu</title>
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;1,600&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+			integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk"
+			crossorigin="anonymous"
+		/>
+	</head>
+	<body>
+		<div class="window">
+			<div class="top-bar">
+				<span class="window__user">Użytkownik</span>
+				<div class="window__icons">
+					<i class="far fa-window-restore top-bar-icon"></i>
+					<i class="fas fa-sort-down top-bar-icon"></i>
+					<i class="verical-line top-bar-icon"></i>
+					<i class="far fa-window-minimize top-bar-icon"></i>
+					<i class="far fa-square top-bar-icon"></i>
+					<i class="fas fa-times top-bar-icon"></i>
+				</div>
+			</div>
+			<div class="baner"></div>
+			<div class="chat-card">
+				<div class="chat-card__user">
+					<img
+						src="https://findicons.com/files/icons/2804/plex/512/gadu_gadu.png"
+						class="user-icon"
+					/>
+					<span class="user-name"> Użytkownik </span>
+					<i class="fas fa-times user-close"></i>
+				</div>
+				<div class="chat-card__content">
+					<div class="description">
+						<div class="profile"></div>
+						<p class="text">
+							Jadę na weekend do Krakowa :) Pozdrowienia z
+							pociągu! :DDD
+						</p>
+					</div>
+					<div class="action-buttons">
+						<div class="action-button">
+							<i class="fas fa-phone-alt phone-icon"></i>
+						</div>
+						<div class="action-button">
+							<i class="fas fa-video video-icon"></i>
+						</div>
+						<div class="action-button">
+							<i class="fas fa-user-plus user-plus-icon"></i>
+						</div>
+					</div>
+				</div>
+			</div>
+			<ul id="messages-container"></ul>
+			<div class="additional-options">
+				<div class="editing-options">
+					<i class="far fa-smile editing-option"></i>
+					<i class="fas fa-font editing-option"></i>
+					<i class="fas fa-file-alt editing-option"></i>
+				</div>
+				<div class="other-options">
+					<img
+						src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/i/928f5ffb-1a1a-438e-9316-ee09d1a35f29/dbl0mwk-14ba33bb-190e-400e-b684-51bf136e9865.png"
+						class="game-icon"
+					/>
+					<span class="game-text">Zagraj</span>
+					<i class="vertical-line"></i>
+					<i class="fas fa-tools options-icon"></i>
+				</div>
+			</div>
+			<input type="text" id="typing-window" />
+			<div class="bottom-bar">
+				<div class="message-types">
+					<div class="text-type">
+						<i class="far fa-comments"></i>
+						<span>TEKST</span>
+					</div>
+					<div class="sms-type">
+						<i class="fas fa-comment"></i>
+						<span>TEKST</span>
+					</div>
+				</div>
+				<button id="submit-button">wyślij</button>
+			</div>
+		</div>
+		<script src="index.js"></script>
+	</body>
+</html>
