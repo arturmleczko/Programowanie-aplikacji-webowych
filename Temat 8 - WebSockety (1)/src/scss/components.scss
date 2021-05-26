@@ -141,6 +141,7 @@ body {
 				.phone-icon {
 					font-size: $decription-icon;
 					background: $phone-video-gradient;
+					background-clip: text;
 					-webkit-background-clip: text;
 					-webkit-text-fill-color: transparent;
 				}
@@ -148,6 +149,7 @@ body {
 				.video-icon {
 					font-size: $decription-icon;
 					background: $phone-video-gradient;
+					background-clip: text;
 					-webkit-background-clip: text;
 					-webkit-text-fill-color: transparent;
 				}
@@ -155,6 +157,7 @@ body {
 				.user-plus-icon {
 					font-size: $decription-icon;
 					background: $user-plus-gradient;
+					background-clip: text;
 					-webkit-background-clip: text;
 					-webkit-text-fill-color: transparent;
 				}
@@ -246,6 +249,7 @@ body {
 }
 
 #typing-window {
+	display: block;
 	height: 140px;
 	width: 100%;
 	background-color: $typing-window;
@@ -253,7 +257,7 @@ body {
 	border: none;
 	font-size: 25px;
 	outline: none;
-	overflow-y: scroll;
+	resize: none;
 }
 
 .bottom-bar {
@@ -304,6 +308,7 @@ body {
 			i {
 				font-size: 25px;
 				background: $user-plus-gradient;
+				background-clip: text;
 				-webkit-background-clip: text;
 				-webkit-text-fill-color: transparent;
 			}
