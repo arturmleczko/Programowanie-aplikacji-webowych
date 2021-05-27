@@ -3,14 +3,14 @@ import './main.scss';
 let socket = new WebSocket('ws://localhost:8080');
 
 socket.onmessage = function (e) {
-	const messagesContainer = document.getElementById('messages-container');
+	const messagesContainer = document.getElementById('messageContainer');
 	const item = createMessage(e.data);
 	messagesContainer?.appendChild(item);
 };
 
-document.getElementById('submit-button').addEventListener('click', () => {
+document.getElementById('submitButton').addEventListener('click', () => {
 	const typingWindow = document.getElementById(
-		'typing-window'
+		'typingWindow'
 	) as HTMLInputElement;
 	const typingWindowValue = typingWindow.value;
 
@@ -21,7 +21,7 @@ document.getElementById('submit-button').addEventListener('click', () => {
 
 const createMessage = (content: string): HTMLLIElement => {
 	const messageContainer = document.createElement('li');
-	messageContainer.className = 'message-container';
+	messageContainer.className = 'single-message-container';
 
 	const userAndMessageContainer = document.createElement('div');
 	userAndMessageContainer.className = 'user-and-message';
@@ -51,7 +51,10 @@ const getTime = (): string => {
 	const hours = date.getHours();
 	const minutes = date.getMinutes();
 
-	const time = `${hours}:${minutes}`;
+	const checkMinutes =
+		minutes.toString().length > 0 ? minutes : `0${minutes}`;
+
+	const time = `${hours}:${checkMinutes}`;
 
 	return time;
 };

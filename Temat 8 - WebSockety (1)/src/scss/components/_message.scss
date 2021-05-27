@@ -1,0 +1,35 @@
+.single-message-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	padding: 25px 15px;
+	border-bottom: $message-border;
+
+	&:nth-child(odd) {
+		background-color: #f1edca;
+	}
+	&:nth-child(even) {
+		background-color: #f5f2ce;
+	}
+
+	.time {
+		color: $time-color;
+		font-size: $font-size-22;
+		font-style: italic;
+	}
+
+	.user-and-message {
+		display: flex;
+		flex-direction: column;
+
+		.user-name {
+			font-size: $font-size-22;
+			font-weight: 600;
+		}
+
+		.message {
+			padding-top: 5px;
+			font-size: 24px;
+		}
+	}
+}

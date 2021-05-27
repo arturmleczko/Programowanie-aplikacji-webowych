@@ -1,0 +1,51 @@
+.additional-options {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 60px;
+	background-color: $additional-options-color;
+	border-top: $additional-options-border;
+
+	&__editing-options {
+		display: flex;
+		gap: 35px;
+		padding: $left-right-padding;
+
+		&--editing-option {
+			font-size: $font-size-25;
+			color: $additional-options-content-color;
+			cursor: pointer;
+		}
+	}
+
+	&__other-options {
+		display: flex;
+		align-items: center;
+		gap: 20px;
+		padding: $left-right-padding;
+
+		&--game-icon {
+			width: 40px;
+			cursor: pointer;
+		}
+
+		&--game-text {
+			font-size: $font-size-20;
+			font-weight: 600;
+			cursor: pointer;
+		}
+
+		&--vertical-line {
+			display: block;
+			width: 3px;
+			height: 20px;
+			background-color: $additional-options-content-color;
+		}
+
+		&--options-icon {
+			font-size: $font-size-25;
+			color: $additional-options-content-color;
+			cursor: pointer;
+		}
+	}
+}

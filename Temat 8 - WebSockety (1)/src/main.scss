@@ -1,3 +1,16 @@
-@import './scss/reset.scss';
-@import './scss/variables.scss';
-@import './scss/components.scss';
+@import './scss/reset';
+
+@import './scss/abstracts/variables';
+@import './scss/abstracts/mixin';
+
+@import './scss/components/body';
+@import './scss/components/chat-window';
+@import './scss/components/top-bar';
+@import './scss/components/banner';
+@import './scss/components/chat-card';
+@import './scss/components/action-buttons';
+@import './scss/components/message-container';
+@import './scss/components/additional-options';
+@import './scss/components/typing-window';
+@import './scss/components/bottom-bar';
+@import './scss/components/message';

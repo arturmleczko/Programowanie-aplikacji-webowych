@@ -1,0 +1,11 @@
+.typing-window {
+	display: block;
+	height: 140px;
+	width: 100%;
+	background-color: $typing-window-color;
+	padding: $default-padding;
+	border: none;
+	font-size: $font-size-25;
+	outline: none;
+	resize: none;
+}

@@ -1,0 +1,21 @@
+@mixin action-button($gradient) {
+	font-size: $font-size-20;
+	background: $gradient;
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+@mixin message-type {
+	display: flex;
+	align-items: center;
+	height: 40px;
+	padding: $default-padding;
+	cursor: pointer;
+}
+
+@mixin message-type--text {
+	font-size: $font-size-20;
+	font-weight: 600;
+	margin-left: 15px;
+}

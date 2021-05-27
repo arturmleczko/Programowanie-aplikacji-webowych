@@ -75,23 +75,12 @@ module.exports = [
 					],
 				},
 				{
-					test: /\.(png|jpe?g|gif)$/i,
-					use: [
-						{
-							loader: 'file-loader',
-						},
-					],
+					test: /\.(html)$/,
+					use: ['html-loader'],
 				},
 				{
-					test: /\.(png|jpg|gif)$/i,
-					use: [
-						{
-							loader: 'url-loader',
-							options: {
-								limit: false,
-							},
-						},
-					],
+					test: /\.(png|jpg)$/,
+					loader: 'url-loader',
 				},
 			],
 		},

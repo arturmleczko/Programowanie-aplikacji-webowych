@@ -1,0 +1,7 @@
+.message-container {
+	display: flex;
+	flex-direction: column;
+	height: 483px;
+	background-color: $messages-container-color;
+	overflow-y: scroll;
+}

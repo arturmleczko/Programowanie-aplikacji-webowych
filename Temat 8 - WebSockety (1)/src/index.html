@@ -18,79 +18,145 @@
 		/>
 	</head>
 	<body>
-		<div class="window">
+		<div class="chat-window">
 			<div class="top-bar">
-				<span class="window__user">Użytkownik</span>
-				<div class="window__icons">
-					<i class="far fa-window-restore top-bar-icon"></i>
-					<i class="fas fa-sort-down top-bar-icon"></i>
-					<i class="verical-line top-bar-icon"></i>
-					<i class="far fa-window-minimize top-bar-icon"></i>
-					<i class="far fa-square top-bar-icon"></i>
-					<i class="fas fa-times top-bar-icon"></i>
+				<span class="top-bar__user-name">Użytkownik</span>
+				<div class="top-bar__icons">
+					<i class="far fa-window-restore top-bar__icons__icon"></i>
+					<i class="fas fa-sort-down top-bar__icons__icon"></i>
+					<i class="top-bar__icons__verical-line"></i>
+					<i class="far fa-window-minimize top-bar__icons__icon"></i>
+					<i class="far fa-square top-bar__icons__icon"></i>
+					<i class="fas fa-times top-bar__icons__icon"></i>
 				</div>
 			</div>
-			<div class="baner"></div>
+			<div class="banner"></div>
 			<div class="chat-card">
 				<div class="chat-card__user">
 					<img
 						src="https://findicons.com/files/icons/2804/plex/512/gadu_gadu.png"
-						class="user-icon"
+						class="chat-card__user--icon"
 					/>
-					<span class="user-name"> Użytkownik </span>
-					<i class="fas fa-times user-close"></i>
+					<span class="chat-card__user--name"> Użytkownik </span>
+					<i class="fas fa-times chat-card__user--close"></i>
 				</div>
 				<div class="chat-card__content">
-					<div class="description">
-						<div class="profile"></div>
-						<p class="text">
+					<div class="chat-card__content__description">
+						<div
+							class="chat-card__content__description--profile"
+						></div>
+						<p class="chat-card__content__description--text">
 							Jadę na weekend do Krakowa :) Pozdrowienia z
 							pociągu! :DDD
 						</p>
 					</div>
 					<div class="action-buttons">
-						<div class="action-button">
-							<i class="fas fa-phone-alt phone-icon"></i>
+						<div class="action-buttons__action-button">
+							<i
+								class="
+									fas
+									fa-phone-alt
+									action-buttons__action-button--phone-icon
+								"
+							></i>
 						</div>
-						<div class="action-button">
-							<i class="fas fa-video video-icon"></i>
+						<div class="action-buttons__action-button">
+							<i
+								class="
+									fas
+									fa-video
+									action-buttons__action-button--video-icon
+								"
+							></i>
 						</div>
-						<div class="action-button">
-							<i class="fas fa-user-plus user-plus-icon"></i>
+						<div class="action-buttons__action-button">
+							<i
+								class="
+									fas
+									fa-user-plus
+									action-buttons__action-button--user-plus-icon
+								"
+							></i>
 						</div>
 					</div>
 				</div>
 			</div>
-			<ul id="messages-container"></ul>
+			<ul class="message-container" id="messageContainer"></ul>
 			<div class="additional-options">
-				<div class="editing-options">
-					<i class="far fa-smile editing-option"></i>
-					<i class="fas fa-font editing-option"></i>
-					<i class="fas fa-file-alt editing-option"></i>
+				<div class="additional-options__editing-options">
+					<i
+						class="
+							far
+							fa-smile
+							additional-options__editing-options--editing-option
+						"
+					></i>
+					<i
+						class="
+							fas
+							fa-font
+							additional-options__editing-options--editing-option
+						"
+					></i>
+					<i
+						class="
+							fas
+							fa-file-alt
+							additional-options__editing-options--editing-option
+						"
+					></i>
 				</div>
-				<div class="other-options">
+				<div class="additional-options__other-options">
 					<img
 						src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/i/928f5ffb-1a1a-438e-9316-ee09d1a35f29/dbl0mwk-14ba33bb-190e-400e-b684-51bf136e9865.png"
-						class="game-icon"
+						class="additional-options__other-options--game-icon"
 					/>
-					<span class="game-text">Zagraj</span>
-					<i class="vertical-line"></i>
-					<i class="fas fa-tools options-icon"></i>
+					<span class="additional-options__other-options--game-text"
+						>Zagraj</span
+					>
+					<i
+						class="additional-options__other-options--vertical-line"
+					></i>
+					<i
+						class="
+							fas
+							fa-tools
+							additional-options__other-options--options-icon
+						"
+					></i>
 				</div>
 			</div>
-			<input type="text" id="typing-window" />
+			<textarea class="typing-window" id="typingWindow"></textarea>
 			<div class="bottom-bar">
-				<div class="message-types">
-					<div class="text-type">
-						<i class="far fa-comments"></i>
-						<span>TEKST</span>
+				<div class="bottom-bar__message-types">
+					<div class="bottom-bar__message-types--text-type">
+						<i
+							class="
+								far
+								fa-comments
+								bottom-bar__message-types--text-type--icon
+							"
+						></i>
+						<span class="bottom-bar__message-types--text-type--text"
+							>TEKST</span
+						>
 					</div>
-					<div class="sms-type">
-						<i class="fas fa-comment"></i>
-						<span>TEKST</span>
+					<div class="bottom-bar__message-types--sms-type">
+						<i
+							class="
+								fas
+								fa-comment
+								bottom-bar__message-types--sms-type--icon
+							"
+						></i>
+						<span class="bottom-bar__message-types--sms-type--text"
+							>TEKST</span
+						>
 					</div>
 				</div>
-				<button id="submit-button">wyślij</button>
+				<button class="bottom-bar__submit-button" id="submitButton">
+					wyślij
+				</button>
 			</div>
 		</div>
 		<script src="index.js"></script>
