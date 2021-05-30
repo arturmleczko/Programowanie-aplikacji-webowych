@@ -1,0 +1,51 @@
+.theme-switch {
+	display: inline-block;
+	position: absolute;
+	top: 30px;
+	left: 30px;
+	height: 70px;
+	width: 140px;
+
+	input {
+		display: none;
+	}
+
+	.slider {
+		position: absolute;
+		background-color: $switch-theme-color-1;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		transition: 0.4s;
+		cursor: pointer;
+
+		&:before {
+			content: '';
+			background-color: $heading-game-color;
+			top: calc(50% - 30px);
+			height: 60px;
+			left: 4px;
+			right: 4px;
+			position: absolute;
+			transition: 0.4s;
+			width: 60px;
+		}
+	}
+
+	input:checked + .slider {
+		background-color: $switch-theme-color-2;
+	}
+
+	input:checked + .slider:before {
+		transform: translate(71px);
+	}
+
+	.slider.round {
+		border-radius: 34px;
+	}
+
+	.slider.round::before {
+		border-radius: 50%;
+	}
+}

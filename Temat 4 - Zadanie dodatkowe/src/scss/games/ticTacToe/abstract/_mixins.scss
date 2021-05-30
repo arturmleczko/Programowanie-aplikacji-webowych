@@ -1,0 +1,29 @@
+@mixin custom-button {
+	padding: $basic-padding;
+	border: $basic-border;
+	border-radius: $basic-border-radius;
+	font-family: $basic-board-font-family;
+	text-align: center;
+}
+
+@mixin memory-button {
+	font-size: $memory-button;
+	cursor: pointer;
+	transition: color 0.2s ease-in-out;
+
+	&:hover {
+		color: $control-panel-hover;
+	}
+}
+
+@mixin custom-hover-or-active {
+	background-color: $black-color;
+	color: $white-color;
+}
+
+@mixin distribute-items-evenly-in-column {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+}

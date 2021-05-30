@@ -1,0 +1,10 @@
+.game__board.hide,
+.game__game-over.hide,
+.game__options.hide,
+.control-panel.hide {
+	display: none;
+}
+
+.control-panel .undo-button.hide {
+	opacity: 0;
+}

@@ -1,0 +1,20 @@
+.control-panel {
+	position: absolute;
+	top: 35px;
+	right: 35px;
+
+	.undo-button {
+		@include memory-button();
+		margin-right: 40px;
+		opacity: 1;
+		transition: opacity color 0.2s ease-in-out;
+	}
+
+	.save-button {
+		@include memory-button();
+
+		&.active {
+			color: $heading-color;
+		}
+	}
+}
