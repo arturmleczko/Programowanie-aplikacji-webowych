@@ -1,0 +1,58 @@
+### GET ALL PRODUCTS
+GET http://localhost:3000/products 
+
+
+### ADD PRODUCT
+POST http://localhost:3000/products 
+content-type: application/json
+
+{
+    "id": "1",
+    "name": "Telewizor 1",
+    "description": "Super telewizor",
+    "price": 5000
+}
+
+### UPDATE PRODUCT
+PUT http://localhost:3000/products 
+content-type: application/json
+
+{
+    "id": "1",
+    "name": "Lodówka 1",
+    "description": "Super lodówka",
+    "price": 2000
+}
+
+### DELETE PRODUCT
+DELETE http://localhost:3000/products/1
+
+
+
+
+### GET ALL CATEGORIES
+GET http://localhost:3000/categories 
+
+### ADD CATEGORY
+POST http://localhost:3000/categories 
+content-type: application/json
+
+{
+    "id": "1",
+    "name": "TV, Audio",
+    "amountOfProducts": 10
+}
+
+### UPDATE CATEGORY
+PUT http://localhost:3000/categories 
+content-type: application/json
+
+{
+    "id": "1",
+    "name": "AGD duże",
+    "amountOfProducts": 5
+}
+
+### DELETE CATEGORY
+DELETE http://localhost:3000/categories/1
+
