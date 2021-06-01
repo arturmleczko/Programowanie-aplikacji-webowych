@@ -6,15 +6,14 @@
 	.undo-button {
 		@include memory-button();
 		margin-right: 40px;
-		opacity: 1;
-		transition: opacity color 0.2s ease-in-out;
+	}
+
+	.load-button {
+		@include memory-button();
+		margin-right: 40px;
 	}
 
 	.save-button {
 		@include memory-button();
-
-		&.active {
-			color: $heading-color;
-		}
 	}
 }

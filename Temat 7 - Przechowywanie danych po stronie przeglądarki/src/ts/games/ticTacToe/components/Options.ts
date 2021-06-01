@@ -1,15 +1,11 @@
 import { UI } from './UI';
 import { Game } from './Game';
 
-export type Symbols = 'X' | 'O' | undefined;
-
-export interface Player {
-	you: Symbols;
-	friend: Symbols;
-}
+import { Symbols } from './types/types';
+import { IPlayer } from './interfaces/interfaces';
 
 export class Options extends UI {
-	player: Player = {
+	player: IPlayer = {
 		you: undefined,
 		friend: undefined,
 	};
@@ -55,9 +51,9 @@ export class Options extends UI {
 	}
 
 	handlePlayButtonClick(): void {
-		const sizeBoard = (this.getElement(
-			this.UISelectors.sizeBoardInput
-		) as HTMLInputElement).valueAsNumber;
+		const sizeBoard = (
+			this.getElement(this.UISelectors.sizeBoardInput) as HTMLInputElement
+		).valueAsNumber;
 
 		if (!this.player.you || !sizeBoard) return;
 		const game = new Game(sizeBoard);

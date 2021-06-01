@@ -53,8 +53,8 @@ export class GameMenu extends SwitchTheme {
 			case 'Battle Ships':
 				classFormant = 'battle-ships';
 				break;
-			case 'Space Ships':
-				classFormant = 'space-ships';
+			case 'Saper':
+				classFormant = 'saper';
 				break;
 		}
 

@@ -25,6 +25,12 @@ export class DOM {
 			dataSet: 'undoButton',
 		});
 
+		const loadButton = createDOMElement({
+			tagName: 'i',
+			className: 'fas fa-cloud-download-alt load-button hide',
+			dataSet: 'loadButton',
+		});
+
 		const saveButton = createDOMElement({
 			tagName: 'i',
 			className: 'far fa-save save-button ',
@@ -108,6 +114,7 @@ export class DOM {
 		main.appendChild(controlPanel);
 		main.appendChild(article);
 		controlPanel.appendChild(undoButton);
+		controlPanel.appendChild(loadButton);
 		controlPanel.appendChild(saveButton);
 		article.appendChild(h1);
 		article.appendChild(firstSection);

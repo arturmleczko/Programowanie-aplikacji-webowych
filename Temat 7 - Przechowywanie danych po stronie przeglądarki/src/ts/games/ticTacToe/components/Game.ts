@@ -1,8 +1,18 @@
 import { ControlPanel } from './ControlPanel';
-import { Symbols, Player } from './Options';
 import { WinningCombinations } from './WinningCombinations';
-import { Memory } from './Memory';
+import { SessionStorage } from './Memory/SessionStorage';
+import { LocalStorage } from './Memory/LocalStorage';
+
+import { convertOneDArrayToTwoDArray } from './Memory/convertOneDArrayToTwoDArray';
 import { createDOMElement } from '../../../createDOMElement';
+
+import { Symbols } from './types/types';
+import {
+	IPlayer,
+	ISymbolsImage,
+	ICellIndexes,
+	IMemoryAccess,
+} from './interfaces/interfaces';
 
 import xImageSrc from '../../../../img/games/ticTacToe/X.png';
 import oImageSrc from '../../../../img/games/ticTacToe/O.png';
@@ -10,22 +20,12 @@ import tieImageSrc from '../../../../img/games/ticTacToe/TIE.png';
 
 import { SymbolPositionOnBoard } from '../../../decorators';
 
-interface SymbolsImage {
-	xImage: HTMLImageElement;
-	oImage: HTMLImageElement;
-}
-
-interface CellIndexes {
-	i: number;
-	j: number;
-}
-
 export class Game extends ControlPanel {
 	canvas = document.getElementById('cvs') as HTMLCanvasElement;
 	ctx = this.canvas.getContext('2d') as CanvasRenderingContext2D;
 
-	saveButton: HTMLElement = null;
-	undoButton: HTMLElement = null;
+	sessionStorage: SessionStorage = new SessionStorage();
+	localStorage: LocalStorage = new LocalStorage();
 
 	board: number[][] = [];
 
@@ -33,13 +33,22 @@ export class Game extends ControlPanel {
 	SPACE_SIZE: number = 160;
 
 	gameData: Symbols[] = [];
+	lastGameState: Symbols[] = [];
 
-	symbolsImages: SymbolsImage = {
+	symbolsImages: ISymbolsImage = {
 		xImage: new Image(),
 		oImage: new Image(),
 	};
 
-	winningCombination = new WinningCombinations(this.board);
+	memoryAccess: IMemoryAccess = {
+		localStorageAccess: false,
+		sessionStorageAccess: false,
+	};
+
+	winningCombination: WinningCombinations = new WinningCombinations(
+		this.board
+	);
+
 	COMBOS = this.winningCombination.COMBOS;
 
 	GAME_OVER: boolean = false;
@@ -49,7 +58,7 @@ export class Game extends ControlPanel {
 		this.SIZE = SIZE;
 	}
 
-	initializationGame(player: Player): void {
+	initializationGame(player: IPlayer): void {
 		let currentPlayer = player.you;
 
 		this.initializeControlPanel();
@@ -61,24 +70,37 @@ export class Game extends ControlPanel {
 	}
 
 	addButtonsEventListener(): void {
-		this.saveButton.addEventListener('click', () =>
-			this.handleSaveButton()
-		);
-		this.undoButton.addEventListener('click', () =>
-			this.handleUndoButton()
-		);
+		this.saveButton.addEventListener('click', this.handleSaveButton);
+
+		this.undoButton.addEventListener('click', this.handleUndoButton);
+
+		this.loadButton.addEventListener('click', this.handleLoadButton);
 	}
 
-	handleSaveButton(): void {
-		this.saveGame();
-		this.displayUndoButton();
-	}
+	handleSaveButton = (): void => {
+		this.localStorage.saveGame(this.gameData);
+		this.displayLoadButton();
+	};
 
-	handleUndoButton(): void {
+	handleUndoButton = (): void => {
 		this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+		this.memoryAccess.localStorageAccess = false;
+		this.memoryAccess.sessionStorageAccess = true;
+
 		this.drawBoard();
-		this.gameData = JSON.parse(sessionStorage.getItem('gameState'));
-	}
+		this.gameData = this.sessionStorage.readLastMove();
+	};
+
+	handleLoadButton = (): void => {
+		this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+		this.memoryAccess.sessionStorageAccess = false;
+		this.memoryAccess.localStorageAccess = true;
+
+		this.drawBoard();
+		this.gameData = this.localStorage.readGame();
+	};
 
 	setImagesContent(): void {
 		const { xImage, oImage } = this.symbolsImages;
@@ -116,36 +138,46 @@ export class Game extends ControlPanel {
 		this.canvas.width = sizeSideBard;
 		this.canvas.height = sizeSideBard;
 
-		if (sessionStorage.length !== 0) {
-			const readStateGame = this.readGame();
-			const preparedGameState = this.convertOneDArrayToTwoDArray(
-				readStateGame,
-				this.SIZE
-			);
+		let { localStorageAccess, sessionStorageAccess } = this.memoryAccess;
 
-			for (let i = 0; i < preparedGameState.length; i++) {
-				for (let j = 0; j < preparedGameState[i].length; j++) {
-					const gameCell = preparedGameState[i][j] as Symbols;
-					if (gameCell !== null) {
-						this.drawOnBoard(gameCell, i, j);
-					}
-				}
-			}
+		if (sessionStorageAccess) {
+			const readStateGame = this.sessionStorage.readLastMove();
+			this.dataRecovery(readStateGame, this.SIZE);
+		} else if (localStorageAccess) {
+			const readStateGame = this.localStorage.readGame();
+			this.dataRecovery(readStateGame, this.SIZE);
 		} else {
 			const numberCells: number = Math.pow(this.SIZE, 2);
 			this.gameData = new Array(numberCells);
 		}
 	}
 
-	handlePlayerClickLocation(currentPlayer: Symbols, player: Player): void {
-		this.canvas.addEventListener('click', (event) => {
-			this.setMemoryProperties(this.ctx, this.gameData);
+	dataRecovery(readStateGame: Symbols[], size: number): void {
+		const preparedGameState = convertOneDArrayToTwoDArray(
+			readStateGame,
+			size
+		);
 
+		for (let i = 0; i < preparedGameState.length; i++) {
+			for (let j = 0; j < preparedGameState[i].length; j++) {
+				const gameCell = preparedGameState[i][j] as Symbols;
+				if (gameCell !== null) {
+					this.drawOnBoard(gameCell, i, j);
+				}
+			}
+		}
+	}
+
+	handlePlayerClickLocation(currentPlayer: Symbols, player: IPlayer): void {
+		this.canvas.addEventListener('click', (event) => {
 			if (this.GAME_OVER === true) return;
 			const { i, j } = this.calculateCellIndexes(event);
 
 			const id = this.board[i][j];
 			if (this.gameData[id]) return;
+
+			this.sessionStorage.saveLastMove(this.gameData);
+			this.displayUndoButton();
 
 			this.gameData[id] = currentPlayer;
 
@@ -157,7 +189,7 @@ export class Game extends ControlPanel {
 		});
 	}
 
-	calculateCellIndexes(event: MouseEvent): CellIndexes {
+	calculateCellIndexes(event: MouseEvent): ICellIndexes {
 		const X = event.clientX - this.canvas.getBoundingClientRect().x;
 		const Y = event.clientY - this.canvas.getBoundingClientRect().y;
 
@@ -165,7 +197,7 @@ export class Game extends ControlPanel {
 		const i = Math.floor(Y / SPACE_SIZE);
 		const j = Math.floor(X / SPACE_SIZE);
 
-		const cellIndexes: CellIndexes = { i: i, j: j };
+		const cellIndexes: ICellIndexes = { i: i, j: j };
 		return cellIndexes;
 	}
 
@@ -240,8 +272,12 @@ export class Game extends ControlPanel {
 		}
 
 		this.gameOver(message, imageSrc);
-		this.clearSavedGame();
+
+		this.localStorage.clearSavedGame();
+		this.sessionStorage.clearLastMove();
+
 		this.hideUndoButton();
+		this.hideLoadButton();
 		this.hideControlPanel();
 	}
 

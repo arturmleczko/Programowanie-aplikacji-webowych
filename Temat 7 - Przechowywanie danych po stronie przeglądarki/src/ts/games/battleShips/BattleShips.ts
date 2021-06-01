@@ -1,8 +1,8 @@
-import { Game } from '../../game.model';
+import { IGame } from '../../game.model';
 
 import { RunningGame } from '../../decorators';
 
-export class BattleShips implements Game {
+export class BattleShips implements IGame {
 	name: string;
 	disabled: boolean;
 

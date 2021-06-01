@@ -61,20 +61,20 @@
 	}
 }
 
-.game-navigation__space-ships {
+.game-navigation__saper {
 	background-color: var(--game-nav-color-4);
 
-	.space-ships__heading {
+	.saper__heading {
 		@include set-heading-for-game(var(--game-nav-color-5));
 	}
 
-	.space-ships__image-container {
+	.saper__image-container {
 		@include set-image-container(var(--game-nav-bright-color-4));
 		background-position: 5px center;
 	}
 
-	.space-ships__image {
-		@include set-image(var(--space-ships-src));
+	.saper__image {
+		@include set-image(var(--saper-src));
 		background-position: center;
 	}
 }

@@ -1,8 +1,9 @@
-import { Memory } from './Memory';
+import { UI } from './UI';
 
-export class ControlPanel extends Memory {
+export class ControlPanel extends UI {
 	controlPanel: HTMLElement = null;
 	saveButton: HTMLElement = null;
+	loadButton: HTMLElement = null;
 	undoButton: HTMLElement = null;
 
 	initializeControlPanel() {
@@ -13,6 +14,7 @@ export class ControlPanel extends Memory {
 	handleElements(): void {
 		this.controlPanel = this.getElement(this.UISelectors.controlPanel);
 		this.saveButton = this.getElement(this.UISelectors.saveButton);
+		this.loadButton = this.getElement(this.UISelectors.loadButton);
 		this.undoButton = this.getElement(this.UISelectors.undoButton);
 	}
 
@@ -30,5 +32,13 @@ export class ControlPanel extends Memory {
 
 	hideUndoButton(): void {
 		this.undoButton.classList.add('hide');
+	}
+
+	displayLoadButton(): void {
+		this.loadButton.classList.remove('hide');
+	}
+
+	hideLoadButton(): void {
+		this.loadButton.classList.add('hide');
 	}
 }

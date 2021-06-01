@@ -1,9 +1,9 @@
 import { Games } from './games.enum';
-import { Game } from './game.model';
+import { IGame } from './game.model';
 import {
 	TicTacToeCreator,
 	BattleShipsCreator,
-	SpaceShipsCreator,
+	SaperCreator,
 } from './game.creator';
 
 import { GameMenu } from './GameMenu';
@@ -34,7 +34,7 @@ export class GamePortal extends GameMenu {
 		for (const game in Games) {
 			if (isNaN(Number(game))) return;
 
-			const selectedGame: Game = this.selectGame(parseInt(game));
+			const selectedGame: IGame = this.selectGame(parseInt(game));
 			const nameSelectedGame: string = selectedGame.name;
 			const disabled: boolean = selectedGame.disabled;
 
@@ -49,9 +49,9 @@ export class GamePortal extends GameMenu {
 		}
 	}
 
-	selectGame(game: Games): Game {
-		let selectedGame: Game | undefined;
-		const { TicTacToe, BattleShips, SpaceShips } = Games;
+	selectGame(game: Games): IGame {
+		let selectedGame: IGame | undefined;
+		const { TicTacToe, BattleShips, Saper } = Games;
 		if (game === TicTacToe) {
 			const gameCreator = new TicTacToeCreator();
 			selectedGame = gameCreator.getGame();
@@ -62,17 +62,17 @@ export class GamePortal extends GameMenu {
 			selectedGame = gameCreator.getGame();
 		}
 
-		if (game === SpaceShips) {
-			const gameCreator = new SpaceShipsCreator();
+		if (game === Saper) {
+			const gameCreator = new SaperCreator();
 			selectedGame = gameCreator.getGame();
 		}
 
-		return selectedGame as Game;
+		return selectedGame as IGame;
 	}
 
 	handleGameClick(
 		e: MouseEvent,
-		selectedGame: Game,
+		selectedGame: IGame,
 		gameWindow: HTMLDivElement
 	): void {
 		this.clearGameWindowAndOverlay(gameWindow);

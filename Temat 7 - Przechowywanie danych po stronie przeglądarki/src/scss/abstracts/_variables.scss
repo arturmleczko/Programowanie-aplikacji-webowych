@@ -17,7 +17,7 @@
 	// IMAGES SRC
 	--battle-ships-src: url(./img/thumbnails/light/battleships-light.png);
 	--tic-tac-toe-src: url(./img/thumbnails/light/tictactoe-light.png);
-	--space-ships-src: url(./img/thumbnails/light/spaceships-light.png);
+	--saper-src: url(./img/thumbnails/light/saper-light.png);
 }
 
 // DARK THEME
@@ -39,7 +39,7 @@
 	// IMAGES SRC
 	--battle-ships-src: url(./img/thumbnails/dark/battleships-dark.png);
 	--tic-tac-toe-src: url(./img/thumbnails/dark/tictactoe-dark.png);
-	--space-ships-src: url(./img/thumbnails/dark/spaceships-dark.png);
+	--saper-src: url(./img/thumbnails/dark/saper-dark.png);
 }
 
 // OVERALL SIZE
@@ -60,8 +60,3 @@ $switch-theme-color-2: #cccccc;
 
 // FONT FAMILIES
 $basic-font-family: 'Anton', sans-serif;
-
-// IMAGES SRC
-$battle-ships-src: './img/thumbnails/battleships.png';
-$tic-tac-toe-src: './img/thumbnails/tictactoe.png';
-$space-ships-src: './img/thumbnails/spaceships.png';

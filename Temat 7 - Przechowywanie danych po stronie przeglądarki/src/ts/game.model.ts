@@ -1,4 +1,4 @@
-export interface Game {
+export interface IGame {
 	name: string;
 	disabled: boolean;
 	getGameElement(): HTMLElement;

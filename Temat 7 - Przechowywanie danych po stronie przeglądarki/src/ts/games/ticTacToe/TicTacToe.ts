@@ -1,10 +1,10 @@
-import { Game } from '../../game.model';
+import { IGame } from '../../game.model';
 import { DOM } from './components/DOM';
 import { Options } from './components/Options';
 
 import { RunningGame } from '../../decorators';
 
-export class TicTacToe implements Game {
+export class TicTacToe implements IGame {
 	name: string;
 	disabled: boolean;
 

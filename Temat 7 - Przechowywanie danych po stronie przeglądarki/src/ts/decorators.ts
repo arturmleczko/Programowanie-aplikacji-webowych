@@ -1,4 +1,4 @@
-import { Symbols } from './games/ticTacToe/components/Options';
+import { Symbols } from './games/ticTacToe/components/types/types';
 
 export const Disabled = (constructorFn: Function): void => {
 	constructorFn.prototype.disabled = true;

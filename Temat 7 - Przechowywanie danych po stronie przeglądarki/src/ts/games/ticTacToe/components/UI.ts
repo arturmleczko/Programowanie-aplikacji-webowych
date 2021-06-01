@@ -4,6 +4,7 @@ export class UI {
 		controlPanel: '[data-control-panel]',
 		saveButton: '[data-save-button]',
 		undoButton: '[data-undo-button]',
+		loadButton: '[data-load-button]',
 		gameOverElement: '[data-game-over]',
 		sizeBoardInput: '[data-size-board-input]',
 		xButton: '[data-button-x]',
