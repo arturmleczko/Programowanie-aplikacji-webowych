@@ -1,7 +1,14 @@
 .control-panel {
+	display: flex;
+	justify-content: flex-end;
 	position: absolute;
-	top: 35px;
-	right: 35px;
+	top: 45px;
+	right: 45px;
+	width: 410px;
+	padding: 20px 35px;
+	background-color: $heading-color;
+	border: 6px solid $black-color;
+	border-radius: 15px;
 
 	.undo-button {
 		@include memory-button();
