@@ -5,17 +5,17 @@
 	background-color: var(--menu-background-color);
 	overflow: hidden;
 
-	.menu-container__subcontainer {
+	.subcontainer {
 		@include distribute-items-evenly-in-row();
 		width: 70%;
 		height: 100%;
 
-		.subcontainer__logo {
+		&__logo {
 			width: 267px;
 			height: 89px;
 		}
 
-		.subcontainer__game-navigation {
+		&__game-navigation {
 			@include distribute-items-evenly-in-row();
 			width: 60%;
 			height: 100%;
@@ -31,15 +31,15 @@
 .game-navigation__tic-tac-toe {
 	background-color: var(--game-nav-color-5);
 
-	.tic-tac-toe__heading {
+	&__heading {
 		@include set-heading-for-game(var(--game-nav-color-1));
 	}
 
-	.tic-tac-toe__image-container {
+	&__image-container {
 		@include set-image-container(var(--game-nav-bright-color-5));
 	}
 
-	.tic-tac-toe__image {
+	&__image {
 		@include set-image(var(--tic-tac-toe-src));
 		background-position: center;
 	}
@@ -48,15 +48,15 @@
 .game-navigation__battle-ships {
 	background-color: var(--game-nav-color-3);
 
-	.battle-ships__heading {
+	&__heading {
 		@include set-heading-for-game(var(--game-nav-color-2));
 	}
 
-	.battle-ships__image-container {
+	&__image-container {
 		@include set-image-container(var(--game-nav-bright-color-3));
 	}
 
-	.battle-ships__image {
+	&__image {
 		@include set-image(var(--battle-ships-src));
 	}
 }
@@ -64,16 +64,16 @@
 .game-navigation__saper {
 	background-color: var(--game-nav-color-4);
 
-	.saper__heading {
+	&__heading {
 		@include set-heading-for-game(var(--game-nav-color-5));
 	}
 
-	.saper__image-container {
+	&__image-container {
 		@include set-image-container(var(--game-nav-bright-color-4));
 		background-position: 5px center;
 	}
 
-	.saper__image {
+	&__image {
 		@include set-image(var(--saper-src));
 		background-position: center;
 	}
