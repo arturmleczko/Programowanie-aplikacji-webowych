@@ -1,0 +1,67 @@
+### GET ALL PRODUCTS
+GET http://localhost:3000/products 
+
+
+### ADD PRODUCT
+POST http://localhost:3000/products 
+content-type: application/json
+
+{
+    "name": "Telewizor 1",
+    "description": "Super telewizor",
+    "price": 5000,
+    "category": "60b7a619eecff12b605450ab"
+}
+
+### UPDATE PRODUCT
+PUT http://localhost:3000/products 
+content-type: application/json
+
+{
+    "id": "60b7a2d52488090a28dace09",
+    "name": "Lodówka 1",
+    "description": "Super lodówka",
+    "price": 2000
+}
+
+### DELETE PRODUCT
+DELETE http://localhost:3000/products 
+content-type: application/json
+
+{
+    "id": "60b7a682403e80180c7ea9c4"
+}
+
+
+
+### GET ALL CATEGORIES
+GET http://localhost:3000/categories 
+
+### ADD CATEGORY
+POST http://localhost:3000/categories 
+content-type: application/json
+
+{
+    "name": "TV, Audio",
+    "amountOfProducts": 12
+}
+
+### UPDATE CATEGORY
+PUT http://localhost:3000/categories 
+content-type: application/json
+
+{
+    "id": "60b7ab00a847d330b8d20969",
+    "name": "AGD duże",
+    "amountOfProducts": 5
+}
+
+### DELETE CATEGORY
+DELETE http://localhost:3000/categories 
+content-type: application/json
+
+{
+    "id": "60b7ab00a847d330b8d20969"
+}
+
+
