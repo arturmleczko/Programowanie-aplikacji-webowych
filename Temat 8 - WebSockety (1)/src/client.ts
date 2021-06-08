@@ -52,7 +52,7 @@ const getTime = (): string => {
 	const minutes = date.getMinutes();
 
 	const checkMinutes =
-		minutes.toString().length > 0 ? minutes : `0${minutes}`;
+		minutes.toString().length > 1 ? minutes : `0${minutes}`;
 
 	const time = `${hours}:${checkMinutes}`;
 
