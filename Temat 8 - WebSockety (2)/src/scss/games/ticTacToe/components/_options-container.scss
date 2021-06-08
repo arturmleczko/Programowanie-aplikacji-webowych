@@ -1,0 +1,27 @@
+.options__container {
+	@include distribute-items-evenly-in-column();
+	width: $options-container-width;
+	height: $options-container-height;
+
+	.container__heading {
+		font-family: $basic-board-font-family;
+		font-size: 50px;
+	}
+
+	.container__size-input {
+		width: $symbols-button-and-size-input-width;
+		padding: $basic-padding;
+		margin-top: $top-options-button-and-size-input-margin;
+		border: $basic-border;
+		font-family: $basic-board-font-family;
+		font-size: $input-and-play-button-font-size;
+		text-align: center;
+		outline: none;
+
+		&::-webkit-inner-spin-button,
+		&::-webkit-outer-spin-button {
+			-webkit-appearance: none;
+			margin: 0;
+		}
+	}
+}

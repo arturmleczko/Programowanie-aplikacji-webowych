@@ -1,0 +1,18 @@
+.cell {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: $cell-size;
+	height: $cell-size;
+	font-size: 24px;
+	cursor: pointer;
+}
+
+.cell--is-flag {
+	@include cell-action($flag-icon);
+}
+
+.cell--is-mine {
+	background-color: $alarm-color;
+	@include cell-action($bomb-icon);
+}

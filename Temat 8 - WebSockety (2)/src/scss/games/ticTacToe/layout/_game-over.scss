@@ -1,0 +1,30 @@
+.game-over {
+	@include center-item-in-column();
+	width: $game-and-game-over-size;
+	height: $game-and-game-over-size;
+
+	&__heading {
+		font-family: $basic-board-font-family;
+		font-size: 75px;
+	}
+
+	&__image {
+		width: $game-over-image-size;
+		height: $game-over-image-size;
+		padding: $image-and-button-padding;
+	}
+
+	&__play-again {
+		@include custom-button();
+		width: 300px;
+		margin-top: $basic-top-margin;
+		font-size: $input-and-play-button-font-size;
+		text-transform: uppercase;
+		transition: $basic-transition;
+
+		&:hover {
+			@include custom-hover-or-active();
+			width: 320px;
+		}
+	}
+}

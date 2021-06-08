@@ -1,0 +1,11 @@
+.game {
+	@include center-item-in-row();
+	position: relative;
+	width: $game-and-game-over-size;
+	height: $game-and-game-over-size;
+
+	&__board {
+		position: absolute;
+		border: 2px solid $black-color;
+	}
+}

@@ -1,0 +1,18 @@
+{
+	"compilerOptions": {
+		"sourceMap": true,
+		// "strictNullChecks": true,
+		// "noImplicitAny": true,
+		"module": "esnext",
+		"target": "es2019",
+		"outDir": "./dist/server",
+		"removeComments": true,
+		"experimentalDecorators": true
+	},
+	"include": [
+		"src/**/*",
+		"import-png.d.ts",
+		"import-svg.d.ts",
+		"import-fonts.d.ts"
+	]
+}

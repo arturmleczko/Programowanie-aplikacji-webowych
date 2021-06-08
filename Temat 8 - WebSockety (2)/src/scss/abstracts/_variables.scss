@@ -1,0 +1,62 @@
+// LIGHT THEME
+:root {
+	// CSS COLORS
+	--after-game-navigation-color: #6c9dc3;
+	--before-game-navigation-color: #d8e5ec;
+	--game-nav-color-1: #eb372d;
+	--game-nav-color-2: #1581b8;
+	--game-nav-color-3: #7fa329;
+	--game-nav-bright-color-3: #8fae30;
+	--game-nav-color-4: #5f65ec;
+	--game-nav-bright-color-4: #6e75d4;
+	--game-nav-color-5: #f5a718;
+	--game-nav-bright-color-5: #f6b21c;
+	--menu-background-color: #018dbe;
+	--overlay-hover-color: rgba(0, 0, 0, 0.233);
+
+	// IMAGES SRC
+	--tetris-src: url(./img/thumbnails/light/tetris-light.png);
+	--tic-tac-toe-src: url(./img/thumbnails/light/tictactoe-light.png);
+	--saper-src: url(./img/thumbnails/light/saper-light.png);
+}
+
+// DARK THEME
+[data-theme='dark'] {
+	// CSS COLORS
+	--after-game-navigation-color: #bdbdbd;
+	--before-game-navigation-color: #e4e4e4;
+	--game-nav-color-1: #343a40;
+	--game-nav-color-2: #495057;
+	--game-nav-color-3: #dee2e6;
+	--game-nav-bright-color-3: #eff4f8;
+	--game-nav-color-4: #6c757d;
+	--game-nav-bright-color-4: #828c94;
+	--game-nav-color-5: #adb5bd;
+	--game-nav-bright-color-5: #c0c7ce;
+	--menu-background-color: #212529;
+	--overlay-hover-color: rgba(255, 255, 255, 0.3);
+
+	// IMAGES SRC
+	--tetris-src: url(./img/thumbnails/dark/tetris-dark.png);
+	--tic-tac-toe-src: url(./img/thumbnails/dark/tictactoe-dark.png);
+	--saper-src: url(./img/thumbnails/dark/saper-dark.png);
+}
+
+// OVERALL SIZE
+$before-for-image-container-size: 100px;
+
+// WIDTHS
+$game-navigation-game-width: 250px;
+
+// HEIGHTS
+$game-window-height: calc(100% - 350px);
+$image-container-height: calc(100% - 55px);
+$heading-game-height: 55px;
+
+// SCSS COLORS
+$heading-game-color: #ffffff;
+$switch-theme-color-1: #66bb6a;
+$switch-theme-color-2: #cccccc;
+
+// FONT FAMILIES
+$basic-font-family: 'Anton', sans-serif;

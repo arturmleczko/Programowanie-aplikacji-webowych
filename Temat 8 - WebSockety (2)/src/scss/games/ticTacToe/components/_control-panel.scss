@@ -1,0 +1,30 @@
+.control-panel {
+	display: flex;
+	justify-content: flex-end;
+	position: absolute;
+	top: 45px;
+	right: 45px;
+	width: 410px;
+	padding: 20px 35px;
+	background-color: $heading-color;
+	border: 6px solid $black-color;
+	border-radius: 15px;
+
+	.undo-button {
+		@include memory-button();
+		margin-right: 40px;
+	}
+
+	.load-button {
+		@include memory-button();
+		margin-right: 40px;
+	}
+
+	.save-button {
+		@include memory-button();
+	}
+
+	@media (max-width: 1400px) {
+		display: none;
+	}
+}

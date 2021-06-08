@@ -1,0 +1,16 @@
+.border {
+	border: $border-width solid;
+}
+
+.border--convex {
+	border-color: $primary-color--dark #fff #fff $primary-color--dark;
+}
+
+.border--concave {
+	border-color: #fff $primary-color--dark $primary-color--dark #fff;
+}
+
+.border--revealed {
+	border-width: 1px;
+	border-color: $primary-color--dark;
+}

@@ -1,0 +1,39 @@
+.options {
+	@include distribute-items-evenly-in-column();
+	position: absolute;
+	width: 1000px;
+	height: 750px;
+
+	&__heading {
+		font-family: $heading-board-font-family;
+		font-size: 90px;
+		color: $heading-color;
+	}
+
+	&__play-button {
+		width: 180px;
+		font-size: $input-and-play-button-font-size;
+
+		&:hover {
+			@include custom-hover-or-active();
+			width: 200px;
+		}
+	}
+}
+
+.symbols__buttons {
+	display: flex;
+	justify-content: space-around;
+	width: 100%;
+	padding: $image-and-button-padding;
+
+	.symbols__button {
+		width: $symbols-button-and-size-input-width;
+		font-size: 25px;
+
+		&:hover,
+		&.active {
+			@include custom-hover-or-active;
+		}
+	}
+}

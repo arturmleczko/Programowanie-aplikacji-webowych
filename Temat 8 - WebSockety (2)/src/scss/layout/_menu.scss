@@ -1,0 +1,88 @@
+.menu-container {
+	position: relative;
+	@include center-item-in-row();
+	height: 350px;
+	background-color: var(--menu-background-color);
+	overflow: hidden;
+
+	.subcontainer {
+		@include distribute-items-evenly-in-row();
+		width: 70%;
+		height: 100%;
+
+		&__logo {
+			width: 267px;
+			height: 89px;
+		}
+
+		&__game-navigation {
+			@include distribute-items-evenly-in-row();
+			width: 60%;
+			height: 100%;
+			padding: 40px 0;
+
+			.overlay {
+				@include set-overlay-for-game();
+			}
+		}
+	}
+}
+
+.game-navigation__tic-tac-toe {
+	background-color: var(--game-nav-color-5);
+
+	&__heading {
+		@include set-heading-for-game(var(--game-nav-color-1));
+	}
+
+	&__image-container {
+		@include set-image-container(var(--game-nav-bright-color-5));
+	}
+
+	&__image {
+		@include set-image(var(--tic-tac-toe-src));
+		background-position: center;
+	}
+}
+
+.game-navigation__tetris {
+	background-color: var(--game-nav-color-3);
+
+	&__heading {
+		@include set-heading-for-game(var(--game-nav-color-2));
+	}
+
+	&__image-container {
+		@include set-image-container(var(--game-nav-bright-color-3));
+	}
+
+	&__image {
+		@include set-image(var(--tetris-src));
+	}
+
+	@media (max-width: 1980px) {
+		display: none;
+	}
+}
+
+.game-navigation__saper {
+	background-color: var(--game-nav-color-4);
+
+	&__heading {
+		@include set-heading-for-game(var(--game-nav-color-5));
+	}
+
+	&__image-container {
+		@include set-image-container(var(--game-nav-bright-color-4));
+		background-position: 5px center;
+	}
+
+	&__image {
+		@include set-image(var(--saper-src));
+		background-position: center;
+	}
+
+	@media (max-width: 1400px) {
+		display: none;
+	}
+}
