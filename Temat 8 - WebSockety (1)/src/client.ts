@@ -2,17 +2,19 @@ import './main.scss';
 
 let socket = new WebSocket('ws://localhost:8080');
 
-socket.onmessage = function (e) {
-	const messagesContainer = document.getElementById('messageContainer');
-	const item = createMessage(e.data);
+socket.onmessage = (e) => {
+	const messagesContainer = <HTMLUListElement>(
+		document.getElementById('messageContainer')
+	);
+	const item: HTMLLIElement = createMessage(e.data);
 	messagesContainer?.appendChild(item);
 };
 
 document.getElementById('submitButton').addEventListener('click', () => {
-	const typingWindow = document.getElementById(
-		'typingWindow'
-	) as HTMLInputElement;
-	const typingWindowValue = typingWindow.value;
+	const typingWindow = <HTMLTextAreaElement>(
+		document.getElementById('typingWindow')
+	);
+	const typingWindowValue: string = typingWindow.value;
 
 	socket.send(typingWindowValue);
 
@@ -30,11 +32,11 @@ const createMessage = (content: string): HTMLLIElement => {
 	userName.className = 'user-name';
 	userName.textContent = 'Użytkownik';
 
-	const message = document.createElement('span');
+	const message: HTMLSpanElement = document.createElement('span');
 	message.className = 'message';
 	message.textContent = content;
 
-	const time = document.createElement('span');
+	const time: HTMLSpanElement = document.createElement('span');
 	time.className = 'time';
 	time.textContent = getTime();
 
@@ -47,14 +49,14 @@ const createMessage = (content: string): HTMLLIElement => {
 };
 
 const getTime = (): string => {
-	const date = new Date();
-	const hours = date.getHours();
-	const minutes = date.getMinutes();
+	const date: Date = new Date();
+	const hours: number = date.getHours();
+	const minutes: number = date.getMinutes();
 
-	const checkMinutes =
+	const checkMinutes: string | number =
 		minutes.toString().length > 1 ? minutes : `0${minutes}`;
 
-	const time = `${hours}:${checkMinutes}`;
+	const time: string = `${hours}:${checkMinutes}`;
 
 	return time;
 };
