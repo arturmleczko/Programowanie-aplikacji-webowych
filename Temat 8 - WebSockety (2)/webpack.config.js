@@ -16,7 +16,6 @@ module.exports = [
 		devtool: 'inline-source-map',
 		module: {
 			rules: [
-				// all files with a '.ts' or '.tsx' extension will be handled by 'ts-loader'
 				{
 					test: /\.tsx?$/,
 					use: ['ts-loader'],
@@ -51,17 +50,12 @@ module.exports = [
 		],
 		module: {
 			rules: [
-				// all files with a '.ts' or '.tsx' extension will be handled by 'ts-loader'
 				{
 					test: /\.(gif|png|jpe?g|svg)$/i,
 					use: [
 						'file-loader',
 						{
 							loader: 'image-webpack-loader',
-							options: {
-								bypassOnDebug: true, // webpack@1.x
-								disable: true, // webpack@2.x and newer
-							},
 						},
 					],
 				},
@@ -73,17 +67,10 @@ module.exports = [
 				{
 					test: /\.s[ac]ss$/i,
 					use: [
-						// Creates `style` nodes from JS strings
 						{
 							loader: 'style-loader',
-							// options: {
-							//   // injectType: "singletonStyleTag"
-							//   // injectType: "linkTag"
-							// }
 						},
-						// Translates CSS into CommonJS
 						'css-loader',
-						// Compiles Sass to CSS
 						'sass-loader',
 					],
 				},
