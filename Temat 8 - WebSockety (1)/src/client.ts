@@ -22,13 +22,14 @@ document.getElementById('submitButton').addEventListener('click', () => {
 });
 
 const createMessage = (content: string): HTMLLIElement => {
-	const messageContainer = document.createElement('li');
+	const messageContainer: HTMLLIElement = document.createElement('li');
 	messageContainer.className = 'single-message-container';
 
-	const userAndMessageContainer = document.createElement('div');
+	const userAndMessageContainer: HTMLDivElement =
+		document.createElement('div');
 	userAndMessageContainer.className = 'user-and-message';
 
-	const userName = document.createElement('span');
+	const userName: HTMLSpanElement = document.createElement('span');
 	userName.className = 'user-name';
 	userName.textContent = 'Użytkownik';
 
